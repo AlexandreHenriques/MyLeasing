@@ -28,6 +28,8 @@ namespace MyLeasing.Web.Data.Entities
         [Display(Name = "Address")]
         public string? Address { get; set; }
 
+        public User User { get; set; }
+
         [Display(Name = "Owner Name")]
         public string OwnerName { get { return $"{FirstName} {LastName}"; } }
     }
