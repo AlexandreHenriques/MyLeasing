@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyLeasing.Web.Data.Entities.Owner>
+﻿@model IEnumerable<MyLeasing.Web.Data.Entities.Lessee>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.Document)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OwnerName)
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FixedPhone)
@@ -28,8 +31,9 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                @Html.DisplayNameFor(model => model.Photo)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -39,7 +43,10 @@
                 @Html.DisplayFor(modelItem => item.Document)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerName)
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FixedPhone)
@@ -51,9 +58,9 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    @if (!string.IsNullOrEmpty(item.Photo))
                     {
-                        <img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto">
+                        <img src="@Url.Content(item.Photo)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto">
                     }
             </td>
             <td>

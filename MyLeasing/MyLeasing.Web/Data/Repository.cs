@@ -40,14 +40,44 @@ namespace MyLeasing.Web.Data
             _context.Owners.Remove(owner);
         }
 
+        public bool OwnerExists(int id)
+        {
+            return _context.Owners.Any(o => o.Id == id);
+        }
+
         public async Task<bool> SaveAllAsync()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public bool OwnerExists(int id)
+        public void AddLessee(Lessee lessee)
         {
-            return _context.Owners.Any(o => o.Id == id);
+            _context.Lessees.Add(lessee);
+        }
+
+        public void DeleteLessee(Lessee lessee)
+        {
+            _context.Lessees.Remove(lessee);
+        }
+
+        public Lessee GetLessee(int id)
+        {
+            return _context.Lessees.Find(id);
+        }
+
+        public IEnumerable<Lessee> GetLessee()
+        {
+            return _context.Lessees.OrderBy(l => l.Id);
+        }
+
+        public bool LesseeExists(int id)
+        {
+            return _context.Lessees.Any(l => l.Id == id);
+        }
+
+        public void UpdateLessee(Lessee lessee)
+        {
+            _context.Lessees.Update(lessee);
         }
     }
 }

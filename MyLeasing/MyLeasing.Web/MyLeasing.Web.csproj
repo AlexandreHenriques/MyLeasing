@@ -17,4 +17,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\lessees\" />
+    <Folder Include="wwwroot\images\owners\" />
+  </ItemGroup>
+
 </Project>

@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Policy;
+using System.Xml.Linq;
 
 namespace MyLeasing.Web.Data.Entities
 {
-    public class Owner : IEntity
+    public class Lessee : IEntity
     {
         public int Id { get; set; }
 
@@ -28,25 +30,13 @@ namespace MyLeasing.Web.Data.Entities
         [Display(Name = "Address")]
         public string? Address { get; set; }
 
-        [Display(Name = "Image")]
-        public string? ImageUrl { get; set; }
+        [Display(Name = "Photo")]
+        public string? Photo { get; set; }
 
         public User User { get; set; }
 
-        public string ImageFullPath
-        {
-            get
-            {
-                if(string.IsNullOrEmpty(ImageUrl))
-                {
-                    return null;
-                }
+        public string FullName { get {  return $"{FirstName} {LastName}"; } }
 
-                return $"https://localhost:44330{ImageUrl.Substring(1)}";
-            }
-        }
-
-        [Display(Name = "Owner Name")]
-        public string OwnerName { get { return $"{FirstName} {LastName}"; } }
+        public string FullNameWithDocument { get { return $"{Document} {FirstName} {LastName}"; } }
     }
 }

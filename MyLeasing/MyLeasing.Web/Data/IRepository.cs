@@ -13,5 +13,12 @@ namespace MyLeasing.Web.Data
         bool OwnerExists(int id);
         Task<bool> SaveAllAsync();
         void UpdateOwner(Owner owner);
+
+        void AddLessee(Lessee lessee);
+        void DeleteLessee(Lessee lessee);
+        Lessee GetLessee(int id);
+        IEnumerable<Lessee> GetLessee();
+        bool LesseeExists(int id);
+        void UpdateLessee(Lessee lessee);
     }
 }

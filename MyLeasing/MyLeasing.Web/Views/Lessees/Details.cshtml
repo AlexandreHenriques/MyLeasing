@@ -1,4 +1,4 @@
-﻿@model MyLeasing.Web.Data.Entities.Owner
+﻿@model MyLeasing.Web.Data.Entities.Lessee
 
 @{
     ViewData["Title"] = "Details";
@@ -7,10 +7,8 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Owner</h4>
+    <h4>Lessee</h4>
     <hr />
-   <div class="row">
-    <div class="cold-md-8">
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Document)
@@ -51,12 +49,10 @@
     </dl>
 </div>
 <div class="col-md-4">
-    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    @if (!string.IsNullOrEmpty(Model.Photo))
     {
-        <img src="@Url.Content(Model.ImageUrl)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto">
+        <img src="@Url.Content(Model.Photo)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto">
     }
-</div>
-</div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

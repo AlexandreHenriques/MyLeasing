@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MyLeasing.Web.Controllers;
 using MyLeasing.Web.Data.Entities;
 
 namespace MyLeasing.Web.Data
@@ -8,6 +9,8 @@ namespace MyLeasing.Web.Data
     {
 
         public DbSet<Owner> Owners { get; set; }
+
+        public DbSet<Lessee> Lessees { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) 
         {

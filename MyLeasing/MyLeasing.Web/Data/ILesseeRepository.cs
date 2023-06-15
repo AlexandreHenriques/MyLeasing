@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace MyLeasing.Web.Data
 {
-    public interface IOwnerRepository : IGenericRepository<Owner>
+    public interface ILesseeRepository : IGenericRepository<Lessee>
     {
         public IQueryable GetAllWithUsers();
     }

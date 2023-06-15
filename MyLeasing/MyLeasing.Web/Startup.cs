@@ -37,7 +37,8 @@ namespace MyLeasing.Web
                 cfg.Password.RequireLowercase = false;
                 cfg.Password.RequireNonAlphanumeric = false;
                 cfg.Password.RequiredLength = 6;
-            });
+            })
+                .AddEntityFrameworkStores<DataContext>();
 
             services.AddDbContext<DataContext>(cfg =>
             {
@@ -48,7 +49,13 @@ namespace MyLeasing.Web
 
             services.AddScoped<IUserHelper, UserHelper>();
 
+            services.AddScoped<IImageHelper, ImageHelper>();
+
             services.AddScoped<IOwnerRepository, OwnerRepository>();
+
+            services.AddScoped<ILesseeRepository, LesseeRepository>();
+
+            services.AddScoped<IConverterHelper, ConverterHelper>();
 
             services.AddControllersWithViews();
         }
@@ -71,6 +78,7 @@ namespace MyLeasing.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
